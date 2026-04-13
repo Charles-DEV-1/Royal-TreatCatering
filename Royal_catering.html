@@ -1,0 +1,1412 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>Royal Treats Exclusive Catering | Isolo, Lagos</title>
+    <meta
+      name="description"
+      content="Royal Treats Exclusive Catering serves nourishing local and continental meals in Isolo, Lagos. Dine-in, takeaway, delivery, and event catering."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --bg: #160d07;
+        --bg-soft: #24150c;
+        --bg-card: rgba(44, 26, 15, 0.86);
+        --surface: #fff8f0;
+        --surface-strong: #ffe7bf;
+        --text: #fef4e8;
+        --text-dark: #23150b;
+        --muted: rgba(254, 244, 232, 0.74);
+        --gold: #d8a145;
+        --gold-deep: #a96518;
+        --line: rgba(255, 220, 171, 0.18);
+        --shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+        --radius-xl: 34px;
+        --radius-lg: 24px;
+        --radius-md: 18px;
+        --max: 1180px;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Manrope", sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at top left, rgba(216, 161, 69, 0.16), transparent 32%),
+          radial-gradient(circle at 80% 20%, rgba(255, 174, 66, 0.1), transparent 24%),
+          linear-gradient(180deg, #1b1008 0%, #120904 100%);
+        overflow-x: hidden;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background-image: radial-gradient(rgba(255, 248, 235, 0.06) 1px, transparent 1px);
+        background-size: 22px 22px;
+        mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.34), transparent 78%);
+        z-index: 0;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      img {
+        display: block;
+        width: 100%;
+      }
+
+      section,
+      footer,
+      header {
+        position: relative;
+        z-index: 1;
+      }
+
+      .container {
+        width: min(calc(100% - 2rem), var(--max));
+        margin: 0 auto;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.7rem;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--surface-strong);
+      }
+
+      .eyebrow::before {
+        content: "";
+        width: 42px;
+        height: 1px;
+        background: rgba(255, 231, 191, 0.6);
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+        line-height: 1.05;
+      }
+
+      p {
+        color: var(--muted);
+        line-height: 1.8;
+      }
+
+      .site-nav {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        backdrop-filter: blur(16px);
+        background: rgba(22, 13, 7, 0.78);
+        border-bottom: 1px solid rgba(255, 220, 171, 0.1);
+      }
+
+      .nav-row {
+        min-height: 78px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+
+      .brand {
+        text-decoration: none;
+      }
+
+      .brand strong {
+        display: block;
+        font-size: 1.25rem;
+        letter-spacing: 0.02em;
+        color: var(--surface);
+      }
+
+      .brand span {
+        display: block;
+        margin-top: 0.1rem;
+        font-size: 0.74rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: rgba(255, 231, 191, 0.72);
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 1.35rem;
+        flex-wrap: wrap;
+      }
+
+      .menu-toggle {
+        display: none;
+        width: 52px;
+        height: 52px;
+        border: 1px solid rgba(255, 231, 191, 0.18);
+        border-radius: 16px;
+        background: rgba(255, 248, 240, 0.04);
+        color: var(--surface);
+        cursor: pointer;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+      }
+
+      .menu-toggle span {
+        display: block;
+        width: 22px;
+        height: 2px;
+        margin: 3px 0;
+        background: currentColor;
+        border-radius: 999px;
+        transition:
+          transform 0.25s ease,
+          opacity 0.25s ease;
+      }
+
+      .menu-toggle.is-open span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+
+      .menu-toggle.is-open span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .menu-toggle.is-open span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        font-size: 0.95rem;
+        color: rgba(254, 244, 232, 0.78);
+        transition: color 0.2s ease, transform 0.2s ease;
+      }
+
+      .nav-links a:hover,
+      .nav-links a:focus-visible {
+        color: var(--surface);
+        transform: translateY(-1px);
+      }
+
+      .nav-cta {
+        text-decoration: none;
+        padding: 0.88rem 1.3rem;
+        border-radius: 999px;
+        background: linear-gradient(135deg, var(--gold), #f1c06f);
+        color: var(--text-dark);
+        font-weight: 800;
+        box-shadow: 0 16px 40px rgba(216, 161, 69, 0.24);
+      }
+
+      .hero {
+        padding: 5.5rem 0 3rem;
+      }
+
+      .hero-shell {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 2rem;
+        align-items: stretch;
+      }
+
+      .hero-copy,
+      .hero-panel {
+        border: 1px solid var(--line);
+        border-radius: var(--radius-xl);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+      }
+
+      .hero-copy {
+        padding: 4rem;
+        background:
+          linear-gradient(160deg, rgba(255, 226, 172, 0.12), transparent 46%),
+          linear-gradient(180deg, rgba(53, 29, 15, 0.95), rgba(22, 12, 7, 0.95));
+      }
+
+      .hero-copy h1 {
+        margin-top: 1.2rem;
+        font-size: clamp(3rem, 6.2vw, 5.8rem);
+        max-width: 10ch;
+      }
+
+      .hero-copy h1 span {
+        color: #ffd693;
+      }
+
+      .hero-copy p {
+        margin-top: 1.4rem;
+        max-width: 58ch;
+        font-size: 1.02rem;
+      }
+
+      .hero-actions {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin-top: 2rem;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        min-height: 54px;
+        padding: 0 1.5rem;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 800;
+      }
+
+      .button.primary {
+        background: linear-gradient(135deg, var(--gold), #f2c97f);
+        color: var(--text-dark);
+      }
+
+      .button.secondary {
+        border: 1px solid rgba(255, 226, 172, 0.28);
+        background: rgba(255, 255, 255, 0.03);
+        color: var(--surface);
+      }
+
+      .hero-facts {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+        margin-top: 2.25rem;
+      }
+
+      .fact {
+        padding: 1rem 1rem 1.1rem;
+        border-radius: var(--radius-md);
+        background: rgba(255, 248, 240, 0.045);
+        border: 1px solid rgba(255, 231, 191, 0.12);
+      }
+
+      .fact strong {
+        display: block;
+        font-size: 1.25rem;
+        color: var(--surface);
+      }
+
+      .fact span {
+        display: block;
+        margin-top: 0.25rem;
+        font-size: 0.9rem;
+        color: rgba(254, 244, 232, 0.72);
+      }
+
+      .hero-panel {
+        min-height: 100%;
+        position: relative;
+        isolation: isolate;
+        background: #140b06;
+      }
+
+      .hero-slide {
+        position: absolute;
+        inset: 0;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        opacity: 0;
+        transform: scale(1.04);
+        transition:
+          opacity 1.1s ease,
+          transform 6s ease;
+      }
+
+      .hero-slide::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(25, 14, 7, 0.14), rgba(25, 14, 7, 0.84));
+      }
+
+      .hero-slide.is-active {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      .hero-card {
+        position: absolute;
+        left: 1.25rem;
+        right: 1.25rem;
+        bottom: 1.25rem;
+        padding: 1.35rem;
+        background: rgba(19, 10, 5, 0.78);
+        border: 1px solid rgba(255, 226, 172, 0.18);
+        border-radius: 22px;
+        backdrop-filter: blur(14px);
+      }
+
+      .hero-card .stars {
+        color: #ffd27f;
+        letter-spacing: 0.14em;
+        font-size: 0.92rem;
+      }
+
+      .hero-card p {
+        margin-top: 0.7rem;
+        font-size: 0.95rem;
+      }
+
+      .quick-strip {
+        padding: 1.5rem 0 0.5rem;
+      }
+
+      .quick-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .quick-item {
+        padding: 1.25rem;
+        border-radius: 20px;
+        border: 1px solid var(--line);
+        background: rgba(255, 248, 240, 0.04);
+      }
+
+      .quick-item strong {
+        display: block;
+        font-size: 0.88rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #ffdca5;
+      }
+
+      .quick-item span,
+      .quick-item a {
+        display: block;
+        margin-top: 0.45rem;
+        color: var(--surface);
+        text-decoration: none;
+        line-height: 1.6;
+      }
+
+      .section {
+        padding: 5rem 0;
+      }
+
+      .section-head {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .section-head h2 {
+        font-size: clamp(2rem, 4vw, 3.6rem);
+        margin-top: 0.9rem;
+      }
+
+      .section-head p {
+        max-width: 38ch;
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+      }
+
+      .story-card,
+      .highlight-card {
+        border-radius: var(--radius-xl);
+        border: 1px solid var(--line);
+        overflow: hidden;
+      }
+
+      .story-card {
+        padding: 2rem;
+        background:
+          linear-gradient(180deg, rgba(255, 231, 191, 0.1), transparent 28%),
+          var(--bg-card);
+      }
+
+      .story-points {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+        margin-top: 1.8rem;
+      }
+
+      .point {
+        padding: 1rem;
+        border-radius: var(--radius-md);
+        background: rgba(255, 248, 240, 0.04);
+        border: 1px solid rgba(255, 231, 191, 0.12);
+      }
+
+      .point strong {
+        display: block;
+        color: var(--surface);
+        margin-bottom: 0.35rem;
+      }
+
+      .highlight-card {
+        min-height: 100%;
+        background:
+          linear-gradient(180deg, rgba(16, 8, 4, 0.18), rgba(16, 8, 4, 0.82)),
+          url("https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80")
+            center/cover no-repeat;
+        display: flex;
+        align-items: end;
+      }
+
+      .highlight-copy {
+        width: 100%;
+        padding: 2rem;
+        background: linear-gradient(180deg, transparent, rgba(16, 8, 4, 0.95));
+      }
+
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+        margin-top: 1.3rem;
+      }
+
+      .chip {
+        padding: 0.75rem 1rem;
+        border-radius: 999px;
+        background: rgba(255, 248, 240, 0.08);
+        border: 1px solid rgba(255, 231, 191, 0.16);
+        color: var(--surface);
+        font-size: 0.92rem;
+      }
+
+      .services-grid,
+      .reviews-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .service-card,
+      .review-card,
+      .menu-card,
+      .contact-card {
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--line);
+        background: var(--bg-card);
+        overflow: hidden;
+      }
+
+      .service-card {
+        padding: 1.5rem;
+        transition: transform 0.25s ease, border-color 0.25s ease;
+      }
+
+      .service-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(255, 231, 191, 0.28);
+      }
+
+      .service-no {
+        display: inline-flex;
+        width: 2.4rem;
+        height: 2.4rem;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: rgba(255, 231, 191, 0.1);
+        color: #ffd693;
+        font-weight: 800;
+      }
+
+      .service-card h3 {
+        margin-top: 1rem;
+        font-size: 1.6rem;
+      }
+
+      .service-card p {
+        margin-top: 0.85rem;
+      }
+
+      .menu-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .menu-card {
+        background: rgba(255, 248, 240, 0.04);
+      }
+
+      .menu-card img {
+        height: 240px;
+        object-fit: cover;
+      }
+
+      .menu-card .copy {
+        padding: 1.2rem;
+      }
+
+      .menu-card h3 {
+        font-size: 1.45rem;
+      }
+
+      .menu-card p {
+        margin-top: 0.7rem;
+        font-size: 0.95rem;
+      }
+
+      .reviews-grid {
+        margin-top: 1rem;
+      }
+
+      .review-card {
+        padding: 1.6rem;
+      }
+
+      .review-card .stars {
+        color: #ffd27f;
+        font-size: 0.94rem;
+        letter-spacing: 0.12em;
+      }
+
+      .review-card p {
+        margin-top: 1rem;
+        color: var(--surface);
+        font-size: 1rem;
+      }
+
+      .review-card strong {
+        display: block;
+        margin-top: 1.2rem;
+        color: #ffdca5;
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 1rem;
+      }
+
+      .contact-card {
+        padding: 1.8rem;
+      }
+
+      .contact-list {
+        display: grid;
+        gap: 1rem;
+        margin-top: 1.4rem;
+      }
+
+      .contact-item {
+        padding: 1rem 1.05rem;
+        border-radius: 18px;
+        background: rgba(255, 248, 240, 0.045);
+        border: 1px solid rgba(255, 231, 191, 0.11);
+      }
+
+      .contact-item strong {
+        display: block;
+        color: #ffdca5;
+        font-size: 0.86rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .contact-item span,
+      .contact-item a {
+        display: block;
+        margin-top: 0.35rem;
+        text-decoration: none;
+        color: var(--surface);
+        line-height: 1.7;
+      }
+
+      .callout {
+        margin-top: 1.4rem;
+        padding: 1.2rem;
+        border-radius: 20px;
+        background: linear-gradient(135deg, rgba(216, 161, 69, 0.18), rgba(255, 248, 240, 0.05));
+        border: 1px solid rgba(255, 231, 191, 0.18);
+      }
+
+      .callout p {
+        color: var(--surface);
+      }
+
+      .map-card {
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background:
+          linear-gradient(180deg, rgba(255, 231, 191, 0.08), transparent 30%),
+          linear-gradient(180deg, rgba(36, 21, 12, 0.94), rgba(19, 10, 5, 0.98));
+      }
+
+      .map-visual {
+        margin-top: 1.2rem;
+        padding: 1.5rem;
+        border-radius: 22px;
+        background:
+          radial-gradient(circle at 30% 30%, rgba(216, 161, 69, 0.22), transparent 20%),
+          linear-gradient(135deg, rgba(255, 248, 240, 0.08), rgba(255, 248, 240, 0.02));
+        border: 1px solid rgba(255, 231, 191, 0.14);
+      }
+
+      .location-photo {
+        margin-top: 1.2rem;
+        height: 220px;
+        border-radius: 22px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 231, 191, 0.14);
+        background:
+          linear-gradient(180deg, rgba(16, 8, 4, 0.15), rgba(16, 8, 4, 0.55)),
+          url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80")
+            center/cover no-repeat;
+      }
+
+      .map-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.55rem;
+      }
+
+      .map-grid span {
+        aspect-ratio: 1;
+        border-radius: 12px;
+        background: rgba(255, 248, 240, 0.05);
+        border: 1px solid rgba(255, 231, 191, 0.08);
+      }
+
+      .map-pin {
+        margin: 1rem auto 0;
+        width: 76px;
+        height: 76px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        color: var(--text-dark);
+        background: linear-gradient(135deg, #ffd27f, var(--gold));
+        box-shadow: 0 16px 38px rgba(216, 161, 69, 0.32);
+        font-weight: 800;
+      }
+
+      footer {
+        padding: 1.4rem 0 2.8rem;
+      }
+
+      .footer-card {
+        padding: 1.4rem 1.5rem;
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        background: rgba(255, 248, 240, 0.04);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+
+      .footer-card p {
+        color: rgba(254, 244, 232, 0.8);
+      }
+
+      @media (max-width: 1040px) {
+        .hero-shell,
+        .about-grid,
+        .contact-grid,
+        .services-grid,
+        .reviews-grid,
+        .menu-grid,
+        .quick-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .hero-panel {
+          min-height: 460px;
+        }
+
+        .menu-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .hero-copy {
+          padding: 3rem 2.4rem;
+        }
+
+        .hero-copy h1 {
+          font-size: clamp(2.7rem, 6vw, 4.7rem);
+          max-width: 11ch;
+        }
+      }
+
+      @media (max-width: 760px) {
+        .site-nav {
+          position: static;
+        }
+
+        .section-head,
+        .footer-card {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .nav-row {
+          min-height: 74px;
+          align-items: center;
+          flex-wrap: wrap;
+        }
+
+        .menu-toggle {
+          display: inline-flex;
+          margin-left: auto;
+        }
+
+        .nav-links {
+          width: 100%;
+          display: none;
+          flex-direction: column;
+          align-items: stretch;
+          gap: 0.75rem;
+          justify-content: flex-start;
+          padding: 0.75rem 0 0.2rem;
+        }
+
+        .nav-links.is-open {
+          display: flex;
+        }
+
+        .nav-links a {
+          width: 100%;
+          padding: 0.9rem 1rem;
+          border-radius: 16px;
+          background: rgba(255, 248, 240, 0.04);
+          border: 1px solid rgba(255, 231, 191, 0.08);
+        }
+
+        .nav-links .nav-cta {
+          text-align: center;
+        }
+
+        .hero {
+          padding-top: 1.4rem;
+        }
+
+        .hero-shell,
+        .about-grid,
+        .contact-grid,
+        .services-grid,
+        .reviews-grid,
+        .menu-grid,
+        .quick-grid,
+        .hero-facts,
+        .story-points {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-copy {
+          padding: 2rem 1.25rem 1.8rem;
+        }
+
+        .hero-copy h1 {
+          margin-top: 1rem;
+          font-size: clamp(2.25rem, 11vw, 3.5rem);
+          line-height: 1.02;
+          letter-spacing: -0.03em;
+          max-width: 100%;
+          text-wrap: balance;
+        }
+
+        .hero-copy p {
+          font-size: 0.97rem;
+          line-height: 1.75;
+        }
+
+        .section-head {
+          gap: 0.9rem;
+        }
+
+        .section-head h2 {
+          font-size: clamp(1.85rem, 8.4vw, 2.8rem);
+          line-height: 1.08;
+          text-wrap: balance;
+        }
+
+        .section-head p {
+          max-width: 100%;
+        }
+
+        .button {
+          width: 100%;
+        }
+
+        .section {
+          padding: 4rem 0;
+        }
+
+        .hero-card {
+          position: static;
+          margin: 1rem;
+        }
+
+        .quick-item,
+        .story-card,
+        .service-card,
+        .review-card,
+        .contact-card,
+        .menu-card .copy {
+          padding-left: 1.15rem;
+          padding-right: 1.15rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .container {
+          width: min(calc(100% - 1.1rem), var(--max));
+        }
+
+        .nav-row {
+          min-height: 70px;
+        }
+
+        .brand strong {
+          font-size: 1.08rem;
+        }
+
+        .brand span,
+        .eyebrow {
+          letter-spacing: 0.16em;
+        }
+
+        .nav-links a {
+          font-size: 0.88rem;
+        }
+
+        .menu-toggle {
+          width: 48px;
+          height: 48px;
+          border-radius: 14px;
+        }
+
+        .hero-copy {
+          padding: 1.6rem 1rem 1.4rem;
+          border-radius: 26px;
+        }
+
+        .hero-copy h1 {
+          font-size: clamp(2rem, 12vw, 2.85rem);
+        }
+
+        .hero-facts {
+          gap: 0.75rem;
+          margin-top: 1.5rem;
+        }
+
+        .fact,
+        .quick-item,
+        .story-card,
+        .point,
+        .service-card,
+        .review-card,
+        .contact-card {
+          border-radius: 18px;
+        }
+
+        .section {
+          padding: 3.35rem 0;
+        }
+
+        .section-head h2 {
+          font-size: clamp(1.7rem, 9vw, 2.35rem);
+        }
+
+        .hero-panel {
+          min-height: 360px;
+          border-radius: 26px;
+        }
+
+        .hero-card {
+          margin: 0.85rem;
+          padding: 1.05rem;
+        }
+
+        .menu-card img,
+        .location-photo {
+          height: 190px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-nav">
+      <div class="container nav-row">
+        <a class="brand" href="#top">
+          <strong>Royal Treats</strong>
+          <span>Exclusive Catering</span>
+        </a>
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+          aria-label="Open navigation menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav class="nav-links" id="primary-nav" aria-label="Primary">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#menu">Menu</a>
+          <a href="#reviews">Reviews</a>
+          <a href="#contact" class="nav-cta">Book Now</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="container hero-shell">
+          <div class="hero-copy">
+            <div class="eyebrow">Isolo, Lagos</div>
+            <h1>Royal meals for <span>every table</span> and every event.</h1>
+            <p>
+              Royal Treats Exclusive Catering serves nourishing local and
+              continental dishes with the warmth of home and the polish of a
+              premium catering brand. Dine in, pick up takeaway, request
+              delivery, or book us for your next celebration.
+            </p>
+            <div class="hero-actions">
+              <a class="button primary" href="tel:08161679900">Call 0816 167 9900</a>
+              <a class="button secondary" href="https://wa.me/2348161679900">Order on WhatsApp</a>
+            </div>
+            <div class="hero-facts">
+              <div class="fact">
+                <strong>5.0</strong>
+                <span>Google rating from 16 reviews</span>
+              </div>
+              <div class="fact">
+                <strong>9 PM</strong>
+                <span>Open now and closes at 9:00 PM</span>
+              </div>
+              <div class="fact">
+                <strong>3 Ways</strong>
+                <span>Dine-in, takeaway, and delivery</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-panel" aria-hidden="true">
+            <div
+              class="hero-slide is-active"
+              style="
+                background-image:
+                  url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80');
+              "
+            ></div>
+            <div
+              class="hero-slide"
+              style="
+                background-image:
+                  url('https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80');
+              "
+            ></div>
+            <div
+              class="hero-slide"
+              style="
+                background-image:
+                  url('https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=1200&q=80');
+              "
+            ></div>
+            <div
+              class="hero-slide"
+              style="
+                background-image:
+                  url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&q=80');
+              "
+            ></div>
+            <div class="hero-card">
+              <div class="stars">★★★★★</div>
+              <p>
+                "Lovely place, nice dishes both local and continental. Food
+                tastes amazing."
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="quick-strip">
+        <div class="container quick-grid">
+          <div class="quick-item">
+            <strong>Address</strong>
+            <span>17 Akowonjo Street, Isolo, Lagos 102214</span>
+          </div>
+          <div class="quick-item">
+            <strong>Located In</strong>
+            <span>General Hospital Isolo</span>
+          </div>
+          <div class="quick-item">
+            <strong>Phone</strong>
+            <a href="tel:08161679900">0816 167 9900</a>
+          </div>
+          <div class="quick-item">
+            <strong>Map Code</strong>
+            <span>G8JC+58 Lagos</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="about">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <div class="eyebrow">About Royal Treats</div>
+              <h2>Fresh flavour, rich nourishment, and service that feels personal.</h2>
+            </div>
+            <p>
+              Built around quality ingredients and satisfying portions, Royal
+              Treats has earned a glowing local reputation for delicious food,
+              dependable service, and a welcoming dining experience.
+            </p>
+          </div>
+
+          <div class="about-grid">
+            <article class="story-card">
+              <p>
+                From daily meals to event spreads, the kitchen blends beloved
+                Nigerian staples with continental options that suit different
+                tastes. It is the kind of place guests remember for flavour,
+                comfort, and consistency.
+              </p>
+              <div class="story-points">
+                <div class="point">
+                  <strong>Nourishing Food</strong>
+                  <p>Guests repeatedly mention meals that are full of nutrients and deeply satisfying.</p>
+                </div>
+                <div class="point">
+                  <strong>Flexible Service</strong>
+                  <p>Perfect for dine-in visits, quick takeaway orders, and convenient delivery.</p>
+                </div>
+                <div class="point">
+                  <strong>Event Ready</strong>
+                  <p>Suitable for celebrations, office events, family gatherings, and catered occasions.</p>
+                </div>
+                <div class="point">
+                  <strong>Trusted Location</strong>
+                  <p>Easy to find inside General Hospital Isolo on Akowonjo Street.</p>
+                </div>
+              </div>
+            </article>
+
+            <aside class="highlight-card">
+              <div class="highlight-copy">
+                <div class="eyebrow">What Guests Love</div>
+                <h3>Local and continental dishes made to impress.</h3>
+                <div class="chips">
+                  <span class="chip">Comfort food</span>
+                  <span class="chip">Balanced meals</span>
+                  <span class="chip">Event platters</span>
+                  <span class="chip">Fast delivery</span>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="services">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <div class="eyebrow">Services</div>
+              <h2>Everything you need, from quick meals to full catering support.</h2>
+            </div>
+            <p>
+              The business details you shared highlight a complete food service
+              setup that works for walk-ins, regular food orders, and special
+              events.
+            </p>
+          </div>
+
+          <div class="services-grid">
+            <article class="service-card">
+              <div class="service-no">01</div>
+              <h3>Dine-In</h3>
+              <p>
+                Enjoy a calm, welcoming meal on-site with nourishing dishes
+                prepared fresh and served hot.
+              </p>
+            </article>
+            <article class="service-card">
+              <div class="service-no">02</div>
+              <h3>Takeaway</h3>
+              <p>
+                Pick up your favourites quickly when you need quality meals on
+                the move without sacrificing taste.
+              </p>
+            </article>
+            <article class="service-card">
+              <div class="service-no">03</div>
+              <h3>Delivery</h3>
+              <p>
+                Order from home or work and get delicious meals sent to you with
+                convenience and care.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="menu">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <div class="eyebrow">Menu Highlights</div>
+              <h2>Popular categories guests expect from a royal kitchen.</h2>
+            </div>
+            <p>
+              The listing mentions both local and continental dishes, so this
+              page showcases the style of meals customers can look forward to.
+            </p>
+          </div>
+
+          <div class="menu-grid">
+            <article class="menu-card">
+              <img
+                src="https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=900&q=80"
+                alt="Rice and grilled chicken"
+                loading="lazy"
+              />
+              <div class="copy">
+                <h3>Local Specials</h3>
+                <p>Well-loved Nigerian favourites served with rich flavour, colour, and comforting portions.</p>
+              </div>
+            </article>
+            <article class="menu-card">
+              <img
+                src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=900&q=80"
+                alt="Continental meal"
+                loading="lazy"
+              />
+              <div class="copy">
+                <h3>Continental Dishes</h3>
+                <p>Carefully prepared plates for customers who want something polished, modern, and satisfying.</p>
+              </div>
+            </article>
+            <article class="menu-card">
+              <img
+                src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=80"
+                alt="Soup bowl"
+                loading="lazy"
+              />
+              <div class="copy">
+                <h3>Soups and Stews</h3>
+                <p>Hearty, nourishing options that match the review praise for food that feels wholesome and filling.</p>
+              </div>
+            </article>
+            <article class="menu-card">
+              <img
+                src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80"
+                alt="Catering table setup"
+                loading="lazy"
+              />
+              <div class="copy">
+                <h3>Event Catering</h3>
+                <p>Beautiful food presentation and dependable service for birthdays, corporate events, and celebrations.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="reviews">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <div class="eyebrow">Reviews</div>
+              <h2>Guests keep coming back for the taste and the care.</h2>
+            </div>
+            <p>
+              Based on the information you provided, these are the standout
+              customer impressions currently shown on Google.
+            </p>
+          </div>
+
+          <div class="reviews-grid">
+            <article class="review-card">
+              <div class="stars">★★★★★</div>
+              <p>"The food is full of nutrients and very nourishing."</p>
+              <strong>Tosin Adex</strong>
+            </article>
+            <article class="review-card">
+              <div class="stars">★★★★★</div>
+              <p>"It very nice and the food is delicious."</p>
+              <strong>Excel Slimposh</strong>
+            </article>
+            <article class="review-card">
+              <div class="stars">★★★★★</div>
+              <p>"Lovely place, nice dishes both local and continental. Food tastes amazing."</p>
+              <strong>Timothy Ameh</strong>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <div class="container contact-grid">
+          <article class="contact-card">
+            <div class="eyebrow">Visit and Order</div>
+            <h2 style="margin-top: 0.9rem; font-size: clamp(2rem, 4vw, 3.2rem)">
+              Make Royal Treats your next food stop in Isolo.
+            </h2>
+            <div class="contact-list">
+              <div class="contact-item">
+                <strong>Address</strong>
+                <span>17 Akowonjo Street, Isolo, Lagos 102214, Lagos</span>
+                <span>Located in General Hospital Isolo</span>
+              </div>
+              <div class="contact-item">
+                <strong>Hours</strong>
+                <span>Open now</span>
+                <span>Closes 9:00 PM</span>
+              </div>
+              <div class="contact-item">
+                <strong>Call or Message</strong>
+                <a href="tel:08161679900">0816 167 9900</a>
+                <a href="https://wa.me/2348161679900">WhatsApp ordering available</a>
+              </div>
+              <div class="contact-item">
+                <strong>Service Options</strong>
+                <span>Dine-in</span>
+                <span>Takeaway</span>
+                <span>Delivery</span>
+              </div>
+            </div>
+            <div class="callout">
+              <p>
+                Need food for a family meal or a special event? Call ahead to
+                discuss your order and catering needs.
+              </p>
+            </div>
+          </article>
+
+          <aside class="contact-card map-card">
+            <div>
+              <div class="eyebrow">Find Us</div>
+              <h3 style="margin-top: 0.9rem; font-size: 2rem">General Hospital Isolo</h3>
+              <p style="margin-top: 0.9rem">
+                Royal Treats Exclusive Catering is easy to locate with map code
+                G8JC+58 Lagos.
+              </p>
+              <div class="location-photo" aria-hidden="true"></div>
+              <div class="map-visual" aria-hidden="true">
+                <div class="map-grid">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+                <div class="map-pin">RT</div>
+              </div>
+            </div>
+            <div class="hero-actions" style="margin-top: 1.6rem">
+              <a
+                class="button primary"
+                href="https://www.google.com/maps/search/?api=1&query=Royal+Treats+Exclusive+Catering+17+Akowonjo+Street+Isolo+Lagos"
+              >
+                Get Directions
+              </a>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-card">
+        <div>
+          <strong style="display: block; color: var(--surface)">Royal Treats Exclusive Catering</strong>
+          <p>5.0 rating, 16 Google reviews, and a menu built around flavour, nourishment, and hospitality.</p>
+        </div>
+        <a class="button secondary" href="tel:08161679900">Call to Book</a>
+      </div>
+    </footer>
+
+    <script>
+      const heroSlides = document.querySelectorAll(".hero-slide");
+      let heroSlideIndex = 0;
+      const menuToggle = document.querySelector(".menu-toggle");
+      const primaryNav = document.querySelector("#primary-nav");
+
+      if (heroSlides.length > 1) {
+        window.setInterval(() => {
+          heroSlides[heroSlideIndex].classList.remove("is-active");
+          heroSlideIndex = (heroSlideIndex + 1) % heroSlides.length;
+          heroSlides[heroSlideIndex].classList.add("is-active");
+        }, 4200);
+      }
+
+      if (menuToggle && primaryNav) {
+        menuToggle.addEventListener("click", () => {
+          const isOpen = primaryNav.classList.toggle("is-open");
+          menuToggle.classList.toggle("is-open", isOpen);
+          menuToggle.setAttribute("aria-expanded", String(isOpen));
+          menuToggle.setAttribute(
+            "aria-label",
+            isOpen ? "Close navigation menu" : "Open navigation menu"
+          );
+        });
+
+        primaryNav.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", () => {
+            primaryNav.classList.remove("is-open");
+            menuToggle.classList.remove("is-open");
+            menuToggle.setAttribute("aria-expanded", "false");
+            menuToggle.setAttribute("aria-label", "Open navigation menu");
+          });
+        });
+
+        window.addEventListener("resize", () => {
+          if (window.innerWidth > 760) {
+            primaryNav.classList.remove("is-open");
+            menuToggle.classList.remove("is-open");
+            menuToggle.setAttribute("aria-expanded", "false");
+            menuToggle.setAttribute("aria-label", "Open navigation menu");
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
